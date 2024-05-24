@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+    <title>山 CANIFA | Resgiter</title>
+    <!-- =========Link favicon========-->
+    <!-- <link rel="icon" type="image/x-icon" href="/assets/imgs/favicon-16x16.ico" /> -->
+    <!--=========== Link css ================ -->
+    <link rel="stylesheet" href="/UI/assets/css/base.css">
+    <link rel="stylesheet" href="/UI/assets/css/grid.css">
+    <link rel="stylesheet" href="/UI/assets/css/register.css">
+    <!-------------------------------------------------- -->
+    <!-- ============link fonts================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <!-- --------------------------------------------------- -->
+    <!-- ==== link icon font ====-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+        integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- -------------------------------------------------- -->
+
+</head>
+
+<body>
+    <main id="modalForm" class="modal ">
+        <form id="modalContent" class="modal_content">
+            <!---------- resgiter -->
+            <div class="modal_inner">
+                <div id="modalClose" class="modal-close">
+                    <i class="fa-solid fa-xmark"></i>
+                </div>
+                <header class="modal-header">
+                    <div class="modal-imgs"></div>
+                    <div class="modal-head-group">
+                        <span class="modal-head-register">Đăng ký</span>
+                    </div>
+                </header>
+                <section class="modal-body">
+                    <div class="modal-control">
+                        <label for="fullName" class="modal-label">
+                            Họ và tên:
+                        </label>
+                        <div class="modal-show">
+                            <input type="text" id="fullName" placeholder="Họ và tên" class="modal-input">
+                            <small></small>
+                            <span></span>
+                        </div>
+                    </div>
+                    <div class="modal-control">
+                        <label for="email" class="modal-label">
+                            Email:
+                        </label>
+                        <div class="modal-show">
+                            <input type="text" id="email" placeholder="example.@gmail.com" class="modal-input">
+                            <small></small>
+                            <span></span>
+                        </div>
+                    </div>
+
+                    <div class="modal-group">
+                        <div class="modal-control modal-group-label">
+                            <label for="password" class="modal-label">
+                                Mật khẩu:
+                            </label>
+                            <div class="modal-show">
+                                <input type="password" id="password" placeholder="Mật khẩu" class="modal-input">
+                                <div class="icon-eye">
+                                    <i class="fa-regular fa-eye" id="show-pass"></i>
+                                </div>
+                                <small></small>
+                                <span></span>
+                            </div>
+                        </div>
+                        <div class="modal-control modal-group-label">
+                            <label for="confirmPass" class="modal-label">
+                                Nhập lại mật khẩu:
+                            </label>
+
+                            <div class="modal-show">
+                                <input type="password" id="confirmPass" placeholder="Nhập lại mật khẩu"
+                                    class=" modal-input ">
+                                <div class="icon-eye">
+                                    <i class="fa-regular fa-eye" id="show-cfPass"></i>
+                                </div>
+                                <small></small>
+                                <span></span>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <div class="modal_aside">
+                    <p class="modal_policy-text">
+                        Bằng việc đăng kí, bạn đã đồng ý với Canifa về
+                        <a href="" class="modal_text-link">Điểu khoản dịch vụ</a> &
+                        <a href="" class="modal_text-link">Chính sách bảo mật</a>
+                    </p>
+                </div>
+                <div class="modal_bottom">
+                    <button type="submit" class="btn btn-primary ">ĐĂNG KÝ</button>
+                </div>
+                <div id="linkLogin" class="modal-head-login">Bạn đã có tài khoản ?<a href="login.html">Đăng nhập</a>
+                </div>
+            </div>
+            <!-- end resgiter -->
+        </form>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="./assets/javascript/register.js"></script>
+</body>
+
+</html>

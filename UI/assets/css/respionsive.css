@@ -1,0 +1,228 @@
+@media (max-width: 1024px) {
+    
+}
+
+@media (min-width: 740px) and (max-width: 1024px) {
+
+    /* Trang home */
+    .apps_container {
+        margin-top: calc(var(--header-height) + var(--header-sort-bar-height));
+    }
+
+    .h_with-link {
+        display: none;
+    }
+
+    .h_sort-list {
+        display: flex;
+    }
+
+    .h_search {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+    }
+
+    .h_search-wrapper {
+        width: 300px;
+        height: 100%;
+    }
+
+    .h_search-input {
+        padding: 5px 30px 7px 36px;
+    }
+
+    .h_search-btn {
+        position: absolute;
+        top: 8px;
+        width: 20px;
+        height: 20px;
+    }
+
+    .banner_slider .owl-nav .owl-prev{
+        position: absolute;
+        top: 50%;
+        left: 10px;
+        transform: translateY(-50%);
+    }
+    
+    .banner_slider .owl-nav .owl-next {
+        position: absolute;
+        top: 50%;
+        right: 10px;
+        transform: translateY(-50%);
+    }
+
+/* end Trang Home */
+    .product-details-right {
+        margin-top: 16px;
+    }
+
+}
+
+@media (max-width: 739px) {
+        /* Trang home */
+    .h {
+        height: var(--header-mobile-height);
+    }
+
+    .apps_container{
+        margin-top: calc(var(--header-mobile-height) + var(--header-sort-bar-height)) !important;
+    }
+
+    .apps_content {
+        margin: 0 8px;
+    }
+
+    .h_content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        height: var(--header-mobile-height);
+    }
+
+    .h_with-link {
+        display: none;
+    }
+    
+    .h_search-icon,
+    .h_store-icon,
+    .h_account-icon,
+    .h_cart-group {
+        margin: 0 20px 0 0;
+        font-size: 0.8rem;
+        display: block;
+    }
+    
+    .h_search-icon:hover,
+    .h_store-icon:hover,
+    .h_account-icon:hover,
+    .h_cart-group:hover {
+        cursor: pointer;
+        transform: translateY(0px);
+    }
+    
+    .h_search-wrapper {
+        position: fixed;
+        top: var(--header-mobile-height);
+        left: 0;
+        right: 0;
+        height: 46px ;
+        box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+        z-index: 100;
+        animation: mobileSearchSideIn linear 0.3s;
+        display: none;
+    }
+    
+    .h_search-input {
+        border-radius: 4px;
+    }
+    
+    .h_search-btn-icon {
+        position: absolute;
+        top: 11px;
+        font-size: 2.5rem;
+    }
+    
+    .h_search-btn{
+        position: absolute;
+        top: 12px;
+        width: 20px;
+        height: 20px;
+    }
+    
+    .h_search-history{
+        position: fixed;
+        top: calc(var(--header-mobile-height) + var(--header-sort-bar-height));
+        left: 0;
+        width: 100%;
+        box-shadow: 0 1px 10px rgba(0, 0, 0, 0.05);
+    }
+    
+    .cart_count {
+        position: absolute;
+        left: 26%;
+        top: -8px;
+    }
+    
+    .h_blockcart-content {
+        max-width: 100%;
+    }
+    
+    .h_blockcart-inner-close {
+        font-size: 2.5rem;
+    }
+
+    .h_sort-list {
+        display: flex;
+        list-style: none;
+        padding-left: 0;
+        margin: 0;
+        max-width: 100%;
+        overflow-x: auto;
+        top: var(--header-mobile-height);
+    }
+    
+    .h_sort-list::-webkit-scrollbar {
+        display: none;
+    }
+    
+    .h_sort-item {
+        flex-shrink: 0;
+        margin-right: 16px;
+    }
+    
+    .h_sort-item--active .h_sort-link {
+        color: var(--text-color);
+    }
+    
+    .h_sort-link {
+        --line-height: 2.2rem;
+        text-decoration: none;
+        color: var(--text-color);
+        font-size: 1.4rem;
+        font-weight: 600;
+        line-height: calc(var(--line-height) * 2);
+        height: calc(var(--line-height) * 2);
+        overflow: hidden;
+        text-align: center;
+        width: 130px;
+        border-radius: 4px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        user-select: none;
+        -webkit-user-select: none;
+        padding: 0 6px;
+    }
+
+    .banner_slider .owl-nav,
+    .banner_slider .owl-dots  {
+        display: none;
+    }
+    
+    .colection_product-slider .owl-nav  {
+        display: none;
+    }
+
+    .homeoffers{
+        margin-top: 20px;
+    }
+
+    .deals_content {
+        display: none;
+    }
+
+    
+    .resgiter-moblie {
+        display: none;
+    }
+    
+    
+    .footer {
+        margin: 0 8px;
+    }
+    /*end Trang home */
+    .product-details-right {
+        margin-top: 16px;
+    }
+}
