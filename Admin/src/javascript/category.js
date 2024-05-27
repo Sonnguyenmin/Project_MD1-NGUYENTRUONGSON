@@ -7,7 +7,7 @@ const tbodyCategories = document.querySelector('#categoryBody');
 const errorName = document.querySelector('#errorName');
 const btnCancel = document.querySelector('#btnCancel');
 const btnSubmit = document.querySelector('#btnSubmit');
-const pageList = document.getElementById('page-list');
+const pageList = document.querySelector('#page-list');
 
 let LOCAL_CATEGORY = 'categories';
 let idUpdate = null;

@@ -292,6 +292,7 @@ thead, tbody, tr, td, th  {
     display: flex;
     justify-content:space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 
@@ -434,7 +435,6 @@ thead, tbody, tr, td, th  {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--text-color);
 }
 
 .pagination-active {

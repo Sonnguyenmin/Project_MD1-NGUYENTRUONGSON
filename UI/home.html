@@ -42,7 +42,7 @@
                 <div class="h_content apps_content">
                     <!-- logo -->
                     <div class="h_logo">
-                        <a href="./home.html" class="h_logo-link">
+                        <a href="/UI/home.html" class="h_logo-link">
                             <img src="/public/imgs/logo.svg" alt="" class="h_logo-img">
                         </a>
                     </div>
@@ -217,7 +217,7 @@
                         <div class="h_cart-icon ">
                             <label for="h_cart-check" class="h_cart-group">
                                 <span>Giỏ hàng</span>
-                                <span class="cart_count">0</span>
+                                <span id="countCart" class="cart_count">0</span>
                             </label>
                             <input type="checkbox" hidden class="h_cart-input" id="h_cart-check">
                             <label for="h_cart-check" class="h_blockcart-overlay"></label>
@@ -230,78 +230,31 @@
                                         <ion-icon name="close-circle-outline"></ion-icon>
                                     </label>
                                 </header>
-                                <section class="h_blockcart-no-wrap">
-                                    <div class="h_blockcart-no-img">
-                                        <img src="/public/imgs/sale/cart-empty.png" alt="">
-                                    </div>
-                                    <p class="h_blockcart-no-item">
-                                        Hiện chưa có sản phẩm trong giỏ
-                                    </p>
+                                <section id="noCart" class="h_blockcart-no-wrap hidden">
+
                                 </section>
-                                <!-- <section class="h_blockcart-wrap">
-                                    <ul class="h_blockcart-list">
-                                        <li class="h_blockcart-item">
-                                            <div class="h_blockcart-inner">
-                                                <a href="" class="h_blockcart-inner--img">
-                                                    <img src="/public/imgs/Áo_nữ/vaynu01.webp" alt="">
-                                                </a>
-                                                <div class="h_blockcart-inner--content">
-                                                    <div class="h_blockcart-inner--title">
-                                                        <h5 class="h_blockcart-inner-head">
-                                                            Váy liên bé nữ
-                                                        </h5>
-                                                        <div class="h_blockcart-inner-close">
-                                                            <ion-icon name="trash-outline"></ion-icon>
-                                                        </div>
-                                                    </div>
-                                                    <div class="h_blockcart-inner--options">
-                                                        <div class="h_blockcart-inner--select">
-                                                            <div class="h_blockcart-inner--color"
-                                                                style="background-image: url(/public/imgs/color_options/sm164.webp);">
-                                                            </div>
-                                                            <span class="h_blockcart-inner--id blockcart-separate">
-                                                                PG113
-                                                            </span>
-                                                        </div>
-                                                        <div class="h_blockcart-inner--value">
-                                                            <span>XL</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="h_blockcart-inner--total">
-                                                        <div class="h_blockcart-inner--price">
-                                                            349.000 ₫
-                                                        </div>
-                                                        <div class="h_blockcart-inner--qty">
-                                                            <button class="h_blockcart-inner-minus">
-                                                                <ion-icon name="remove-outline"></ion-icon>
-                                                            </button>
-                                                            <input type="text" class="h_blockcart-inner--input"
-                                                                value="1">
-                                                            <button class="h_blockcart-inner-plus">
-                                                                <ion-icon name="add-outline"></ion-icon>
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                <section id="blockCart" class="h_blockcart-body hidden">
+                                    <div class="h_blockcart-wrap">
+                                        <ul id="blockCartList" class="h_blockcart-list">
+
+                                        </ul>
+                                    </div>
+                                    <footer id="blockCartBottom" class="h_blockcart-bottom">
+                                        <div class="h_blockcart-bottom-total">
+                                            <h4 class="h_blockcart-bottom-head">
+                                                Tạm tính
+                                            </h4>
+                                            <div id="totalCart" class="h_blockcart-bottom-price">
+
                                             </div>
-                                        </li>
-                                    </ul>
-                                </section>
-                                <footer class="h_blockcart-bottom">
-                                    <div class="h_blockcart-bottom-total">
-                                        <h4 class="h_blockcart-bottom-head">
-                                            Tạm tính
-                                        </h4>
-                                        <div class="h_blockcart-bottom-price">
-                                            1.947.000 ₫
                                         </div>
-                                    </div>
-                                    <div class="h_blockcart-bottom-btn">
-                                        <button class="h_blockcart-bottom-check">
-                                            Thanh toán
-                                        </button>
-                                    </div>
-                                </footer> -->
+                                        <div class="h_blockcart-bottom-btn">
+                                            <a  href="/UI/assets/pages/checkOut.html" class="h_blockcart-bottom-check">
+                                                Thanh toán
+                                            </a>
+                                        </div>
+                                    </footer>
+                                </section>
                             </div>
                         </div>
                     </div>
@@ -391,301 +344,8 @@
                         </h2>
                     </div>
                     <div class="colection_product ">
-                        <div class="colection_product-slider owl-carousel owl-theme">
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/newproduct.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url( /public/imgs/Áo_nữ/Vaynu02.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sw001.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Váy liền nữ
-                                        </a>
-                                        <div class="product_item-price">
-                                            889.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/frame_gia_to_t.webp" alt=""
-                                            class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/quanaonu01.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/db083.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Bộ mặc nhà nữ
-                                        </a>
-                                        <div class="product_item-price">
-                                            299.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/newproduct.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/quần_nữ/6bs24s009-sk010-l-1-thumb.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sw001.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Bộ mặc nhà nữ
-                                        </a>
-                                        <div class="product_item-price">
-                                            299.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/frame_gia_to_t.webp" alt=""
-                                            class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/2bs24s017-sk010-130-1-thumb.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Quần soóc active bé trai
-                                        </a>
-                                        <div class="product_item-price">
-                                            129.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/newproduct.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/quần_nữ/6bp24s001-sm573-l-1-u.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sm573.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Quần dài nữ dáng chinos
-                                        </a>
-                                        <div class="product_item-price">
-                                            599.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/newproduct.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/quần_nam/2bk24s002-sb001-130-0-u.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/se429.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Quần khaki bé trai
-                                        </a>
-                                        <div class="product_item-price">
-                                            449.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/newproduct.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/quần_nữ/1bj24s003-sj857-thumb.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sj857.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Quần jeans bé gái họa tiết
-                                        </a>
-                                        <div class="product_item-price">
-                                            549.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="collectionProduct" class="colection_product-slider owl-carousel owl-theme">
+
                         </div>
                     </div>
                 </div>
@@ -781,199 +441,13 @@
                         </a>
                     </div>
                     <div class="colection_product">
-                        <div class="row sm-gutter">
-                            <div class="col l-3 m-6 c-6">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/freeship.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/khoacnam01.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sa422.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Áo khoác chống nắng nam
-                                        </a>
-                                        <div class="product_item-price">
-                                            549.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/newproduct.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/ao01.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/fb491.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/pg113.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sa423.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Áo khoác chống nắng nữ
-                                        </a>
-                                        <div class="product_item-price">
-                                            449.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/freeship.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/aonam6.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sa422.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Áo khoác chống nắng nam
-                                        </a>
-                                        <div class="product_item-price">
-                                            349.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div class="product_item ">
-                                    <div class="product_free">
-                                        <img src="/public/imgs/sale/freeship.webp" alt="" class="product_free-img">
-                                    </div>
-                                    <a href="/UI/assets/pages/productDetails.html" class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/khoacnam01.webp);">
-                                    </a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sa422.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a href="/UI/assets/pages/productDetails.html" class="product_item-head">
-                                            Áo khoác chống nắng nam
-                                        </a>
-                                        <div class="product_item-price">
-                                            549.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="sunProtectionShirt" class="row sm-gutter">
+
                         </div>
                         <div class="product_move">
-                            <button class="btn btn-white">
+                            <a href="/UI/assets/pages/newProduct.html" class="btn btn-white">
                                 Xem tất cả
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -988,386 +462,41 @@
                         </a>
                     </div>
                     <div class="colection_product">
-                        <div class="row sm-gutter">
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/aonu02.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb313.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sm052.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/se068.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông nữ có hình in
-                                        </a>
-                                        <div class="product_item-price">
-                                            249.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/aonu03.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb313.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sm052.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/se068.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông nữ cotton dáng oversize có hình in
-                                        </a>
-                                        <div class="product_item-price">
-                                            399.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/aonu04.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb313.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sm052.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/se068.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông nữ cotton USA dáng babytee
-                                        </a>
-                                        <div class="product_item-price">
-                                            299.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/aonam6.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb313.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sm052.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/se068.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông nam có hình in
-                                        </a>
-                                        <div class="product_item-price">
-                                            299.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/aonu02.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sb313.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sm052.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/se068.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sk010.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông nữ cổ tim dáng suông
-                                        </a>
-                                        <div class="product_item-price">
-                                            149.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nữ/aoembe01.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/fp045.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông bé gái cotton dáng rộng in hình Mickey
-                                        </a>
-                                        <div class="product_item-price">
-                                            279.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/aonam01.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sw001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sa423.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sg628.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông bé gái cotton dáng rộng in hình Mickey
-                                        </a>
-                                        <div class="product_item-price">
-                                            199.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col l-3 m-6 c-6">
-                                <div href="" class="product_item ">
-                                    <div class="product_sale">
-                                        <img src="/public/imgs/sale/sale50.webp" alt="" class="product_sale-img">
-                                    </div>
-                                    <a class="product_item-img"
-                                        style="background-image: url(/public/imgs/Áo_nam/aonam010.webp);"></a>
-                                    <div class="product_select-size">
-                                        <div class="product_size-options">
-                                            <h4 class="product_size-head">
-                                                Thêm nhanh vào giỏ
-                                            </h4>
-                                            <div class="product_size-group">
-                                                <div class="product_size-item">S</div>
-                                                <div class="product_size-item">M</div>
-                                                <div class="product_size-item">L</div>
-                                                <div class="product_size-item">XL</div>
-                                                <div class="product_size-item">XXL</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="product_item-tocart">
-                                        <span>Thêm nhanh vào giỏ</span>
-                                    </div>
-                                    <div class="product_opsions">
-                                        <div class="product_select">
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sa423.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sw001.webp);">
-                                            </div>
-                                            <div class="product_select-img"
-                                                style="background-image: url(/public/imgs/color_options/sg628.webp);">
-                                            </div>
-                                        </div>
-                                        <a class="product_item-head">
-                                            Áo phông bé gái cotton dáng rộng in hình Mickey
-                                        </a>
-                                        <div class="product_item-price">
-                                            199.000 ₫
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                        <div id="tShirtProduct" class="row sm-gutter">
                         </div>
                         <div class="product_move">
-                            <button class="btn btn-white">
+                            <a href="/UI/assets/pages/newProduct.html" class="btn btn-white">
                                 Xem tất cả
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>
             </section>
             <!-- end T-shirt -->
+
+            <!--clothes to wear at home -->
+            <section class="tshirt apps_content">
+                <div class="grid wide">
+                    <div class="tshirt_wrapper">
+                        <a href="" class="tshirt_slider">
+                            <img src="/public/imgs/banner/Mac-nha_block-home_desktop-06.05.webp" alt=""
+                                class="tshirt_slider">
+                        </a>
+                    </div>
+                    <div class="colection_product">
+                        <div id="clothesToWearAtHome" class="row sm-gutter">
+                        </div>
+                        <div class="product_move">
+                            <a href="/UI/assets/pages/newProduct.html" class="btn btn-white">
+                                Xem tất cả
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- end clothes to wear at home -->
+
+
             <!-- canifa life -->
             <section class="canifa apps_content">
                 <div class="grid wide ">
@@ -1609,6 +738,7 @@
     </main>
 
     <script src="./assets/javascript/home.js"></script>
+    <script src="./assets/javascript/homeProduct.js"></script>
     <script src="./assets/javascript/jquery-3.7.1.min.js"></script>
     <script src="/public/data/clothesData.js"></script>
     <!-- owl carousel js -->

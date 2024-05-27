@@ -70,22 +70,6 @@
                                         </span>
                                     </a>
                                 </li>
-                                <!-- <li class="menu_content-item">
-                                    <a href="/Admin/src/pages/Size.html" class="menu_content-link">
-                                        <ion-icon name="build-outline"></ion-icon>
-                                        <span class="menu_content-text">
-                                            Kích thước
-                                        </span>
-                                    </a>
-                                </li>
-                                <li class="menu_content-item">
-                                    <a href="/Admin/src/pages/Color.html" class="menu_content-link">
-                                        <ion-icon name="brush-outline"></ion-icon>
-                                        <span class="menu_content-text">
-                                            Màu sắc
-                                        </span>
-                                    </a>
-                                </li> -->
                                 <li class="menu_content-item">
                                     <a href="/admin/src/pages/Product.html" class="menu_content-link">
                                         <ion-icon name="file-tray-stacked-outline"></ion-icon>
@@ -187,15 +171,6 @@
                     <div class="content_table">
                         <div class="content_table-group">
                             <h3 class="content_table-head">Liệt kê sản phẩm</h3>
-                            <ul class="breadcrumb">
-                                <li class="breadcrumb-item active">
-                                    <a href="/admin/src/pages/SanPham.html" class="breadcrumb-link">
-                                        <ion-icon name="home-outline"></ion-icon>
-                                    </a>
-                                </li>
-                                <li class="breadcrumb-item active"> Trang chủ</li>
-                                <li class="breadcrumb-item blue "> Liệt kê sản phẩm</li>
-                            </ul>
                         </div>
 
                         <section id="jsModal" class="hidden">
@@ -211,7 +186,15 @@
                                         <input type="text" name="name" id="name" class="modal-input">
                                         <p class="error-name" id="errorName"></p>
                                     </div>
+                                    <div class="modal-control">
+                                        <label for="category" class="modal-label">
+                                            Danh mục sản phẩm
+                                        </label>
+                                        <select name="categoryId" class="modal-select" id="category" onchange="changeNameCategory(event)">
 
+                                        </select>
+                                        <p class="error-name" id="errorProList"></p>
+                                    </div>
                                     <div class="modal-control">
                                         <label for="productList" class="modal-label">
                                             Loại sản phẩm
@@ -251,7 +234,7 @@
                                                 Mô tả:
                                             </label>
                                             <textarea class="modal-textarea" name="description" id="description"
-                                                cols="10" rows="4"></textarea>
+                                                cols="10" rows="4" ></textarea>
                                             <p class="error-name" id="errorDesc"></p>
                                         </div>
                                         <div class="modal-control modal-left">
@@ -309,18 +292,6 @@
                                             Thêm Sản phẩm
                                         </button>
                                     </div>
-                                    <div class="table-options">
-                                        <span class="table-arrange">
-                                            Sắp xếp:
-                                        </span>
-                                        <select name="gender" class="table-select" onchange="changeProduct(event)">
-                                            <option value="All">Tất cả</option>
-                                            <option value="aToZ">A-Z</option>
-                                            <option value="zToA">Z-A</option>
-                                            <option value="STTAscending">Từ bé đến lớn</option>
-                                            <option value="STTDescending">Từ lớn đến bé</option>
-                                        </select>
-                                    </div>
                                     <div class="table-search">
                                         <input type="text" class="table-search-input"
                                             onchange="changeNameSearch(event)">
@@ -336,6 +307,7 @@
                                         <tr class="table-tr">
                                             <th class="table-th" width="6%">ID</th>
                                             <th class="table-th">Tên SP</th>
+                                            <th class="table-th">Danh mục SP</th>
                                             <th class="table-th">Loại SP</th>
                                             <th class="table-th">màu sắc</th>
                                             <th class="table-th">Kích thước</th>
@@ -355,9 +327,11 @@
                                     <span class="pagination-show">Hiển thị</span>
                                     <div class="pagination-label">
                                         <select class="pagination-select" onchange="changePageSize(event)">
-                                            <option value="5">5</option>
                                             <option value="10">10</option>
-                                            <option value="15">15</option>
+                                            <option value="20">20</option>
+                                            <option value="30">30</option>
+                                            <option value="40">40</option>
+                                            <option value="50">50</option>
                                         </select>
                                     </div>
                                     <span class="pagination-entries">Mục</span>

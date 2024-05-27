@@ -36,8 +36,8 @@
 
 .table-imgs {
     width: 60px;
-    height: 60px;
-    object-fit: cover;
+    height: 80px;
+    object-fit: contain;
     border-radius: 5px;
     font-size: 10px;
 }

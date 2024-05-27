@@ -3,9 +3,12 @@ const formModal = document.querySelector('#formModal');
 const btnAdd = document.querySelector('#btnAdd');
 const btnCancel = document.querySelector('#btnCancel');
 const btnSubmit = document.querySelector('#btnSubmit');
+
 const imageProductHTML = document.querySelector('#imgProduct');
 const imageColorHTML = document.querySelector('#imgColor');
 const tbodyProduct = document.querySelector('#productBody');
+
+const category = document.querySelector('#category');
 
 const productName = document.querySelector('#name');
 const productList = document.querySelector('#productList');
@@ -19,11 +22,12 @@ const manual = document.querySelector('#manual');
 const productTitle = document.querySelector('#productTitle');
 const LOCAL_PRODUCT = 'Products';
 const LOCAL_PRODUCT_LIST = 'ProductLists';
+const LOCAL_CATEGORY = 'categories';
 
 
 const pageList = document.querySelector('#page-list');
 let idUpdate = null;
-let pageSize = 5;
+let pageSize = 10;
 let totalPage = 1;
 let currentPage = 1;
 let textSearch = "";
@@ -51,11 +55,30 @@ btnCancel.addEventListener('click', () => {
 
 })
 
-function renderProductList() {
+function renderCategory() {
+    const categories = JSON.parse(localStorage.getItem(LOCAL_CATEGORY)) || [];
+    let stringHTML = ``;
+    for (let i = 0; i < categories.length; i++) {
+        if (categories[i].status) {
+            stringHTML += `
+            <option value="${categories[i].id}">${categories[i].name}
+            </option>
+            `
+        }
+    }
+    category.innerHTML = stringHTML;
+}
+renderCategory();
+
+
+
+
+function changeNameCategory(e) {
+    let categoryId = e.target.value;
     const productLists = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LIST)) || [];
     let stringHTML = ``;
     for (let i = 0; i < productLists.length; i++) {
-        if (productLists[i].status) {
+        if (productLists[i].category == categoryId) {
             stringHTML += `
             <option value="${productLists[i].id}">${productLists[i].name}
             </option>
@@ -64,7 +87,6 @@ function renderProductList() {
     }
     productList.innerHTML = stringHTML;
 }
-renderProductList();
 
 
 formModal.addEventListener('submit', (e) => {
@@ -72,7 +94,20 @@ formModal.addEventListener('submit', (e) => {
 
     if (idUpdate) {
         const products = JSON.parse(localStorage.getItem(LOCAL_PRODUCT));
-        const productCheck = checkErrors();
+        const productEdit = {
+            name: productName.value,
+            productList: productList.value,
+            size: size.value,
+            color: imageColorHTML.src,
+            price: +price.value,
+            quantity: +quantity.value,
+            description: description.value,
+            image: imageProductHTML.src,
+            material: material.value,
+            manual: manual.value,
+            status: true,
+        };
+        const productCheck = checkErrors(productEdit);
         if (!productCheck) {
             return;
         }
@@ -84,27 +119,27 @@ formModal.addEventListener('submit', (e) => {
                 showConfirmButton: false,
                 timer: 1500,
             })
+            const indexUpdate = products.findIndex(index => index.id === idUpdate);
+            products[indexUpdate].name = productName.value;
+            products[indexUpdate].productList = productList.value;
+            products[indexUpdate].category = category.value;
+            products[indexUpdate].size = size.value;
+            products[indexUpdate].price = +price.value;
+            products[indexUpdate].quantity = +quantity.value;
+            products[indexUpdate].material = material.value;
+            products[indexUpdate].manual = manual.value;
+            products[indexUpdate].description = description.value;
+            products[indexUpdate].color = imageColorHTML.src;
+            products[indexUpdate].image = imageProductHTML.src;
+
+            localStorage.setItem(LOCAL_PRODUCT, JSON.stringify(products));
+            imageColorHTML.src = "";
+            imageProductHTML.src = "";
+            imageBase64 = null;
+            btnCancel.click();
+            modal.classList.add('hidden');
+            idUpdate = null;
         }
-        const indexUpdate = products.findIndex(index => index.id === idUpdate);
-
-        products[indexUpdate].name = productName.value;
-        products[indexUpdate].productList = productList.value;
-        products[indexUpdate].size = size.value;
-        products[indexUpdate].price = +price.value;
-        products[indexUpdate].quantity = +quantity.value;
-        products[indexUpdate].material = material.value;
-        products[indexUpdate].manual = manual.value;
-        products[indexUpdate].description = description.value;
-       products[indexUpdate].color = imageColorHTML.src;
-       products[indexUpdate].image = imageProductHTML.src;
-
-        localStorage.setItem(LOCAL_PRODUCT, JSON.stringify(products));
-        idUpdate = null;
-        e.target.reset();
-        imageColorHTML.src = "";
-        imageProductHTML.src = "";
-        imageBase64 = null;
-        modal.classList.add('hidden');
         render();
         return;
     }
@@ -116,8 +151,22 @@ formModal.addEventListener('submit', (e) => {
     if (products.length > 0) {
         id = products[products.length - 1].id + 1;
     }
-
-    const productCheck = checkErrors();
+    const product = {
+        id,
+        name: productName.value,
+        productList: productList.value,
+        category: category.value,
+        size: size.value,
+        color: imageColorHTML.src,
+        price: +price.value,
+        quantity: +quantity.value,
+        description: description.value,
+        image: imageProductHTML.src,
+        material: material.value,
+        manual: manual.value,
+        status: true,
+    }
+    const productCheck = checkErrors(product);
     if (!productCheck) {
         return;
     }
@@ -129,21 +178,6 @@ formModal.addEventListener('submit', (e) => {
             showConfirmButton: false,
             timer: 1500,
         })
-    }
-
-    const product = {
-        id,
-        name: productName.value,
-        productList: productList.value,
-        size: size.value,
-        color: imageColorHTML.src,
-        price: +price.value,
-        quantity: +quantity.value,
-        description: description.value,
-        image: imageProductHTML.src,
-        material: material.value,
-        manual: manual.value,
-        status: true,
     }
     products.push(product);
     localStorage.setItem(LOCAL_PRODUCT, JSON.stringify(products));
@@ -224,12 +258,16 @@ function renderProducts(products) {
     for (let i = start; i < end; i++) {
         let productList = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LIST));
         let indexProList = productList.findIndex(item => item.id == products[i].productList);
+
+        let categoryList = JSON.parse(localStorage.getItem(LOCAL_CATEGORY));
+        let indexCategory = categoryList.findIndex(item => item.id == products[i].category);
         stringHTML +=
             `
             <tr>
                 <td class="table-td">${i + 1}</td>
-                <td class="table-td">${products[i].name}</td>
+                <td class="table-td" >${trimString( products[i].name, 18)}</td>
                 <td class="table-td">${productList[indexProList].name}</td>
+                <td class="table-td">${categoryList[indexCategory].name}</td>
                 <td class="table-td">
                 <img class = "color-imgs" src="${products[i].color}" alt="img">
                 </td>
@@ -290,6 +328,7 @@ function updateProduct(id) {
     const productIndex = products.findIndex(item => item.id === id);
     productName.value = products[productIndex].name;
     productList.value = products[productIndex].productList;
+    category.value = products[productIndex].category;
     size.value = products[productIndex].size;
     imageColorHTML.src = products[productIndex].color;
     price.value = products[productIndex].price;
@@ -335,55 +374,33 @@ function changeStatus(i) {
 }
 
 
-function checkErrors() {
+function checkErrors(data) {
     resetShowError();
     const products = JSON.parse(localStorage.getItem(LOCAL_PRODUCT)) || [];
-    const productList = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LIST)) || [];
-    // const fileInput = document.querySelector('#modalImg');
-    // const colorInput = document.querySelector('#colorImg');
     let flag = true;
-    let index = products.findIndex(item => item.name === productName.value);
-    let indexProList = productList.findIndex(item => item.name === productList.value);
-    if (index !== -1 && productList.value == productList[indexProList].name) {
-        flag = false;
-        showError('errorName', "Tên sản phẩm đã tồn tại");
+    for (let i in products) {
+        if(products[i].productList == data.productList && products[i].name == data.name) {
+            showError('errorName', "Tên sản phẩm đã tồn tại");
+            flag = false;
+            break;
+        }
     }
-    if (productName.value === "") {
+    if (data.name == "") {
         flag = false;
         showError('errorName', "* Tên sản phẩm không được để trống");
     }
-    if (size.value === "") {
+    if (data.size == "") {
         flag = false;
         showError('errorSize', "* kích thước không được để trống");
     }
-    // if (colorInput.src == "") {
-    //     flag = false;
-    //     showError('errorColor', "* màu không được để trống");
-    // }
-    if (price.value === "") {
+    if (data.price == "") {
         flag = false;
         showError('errorPrice', "* Giá không được để trống");
     }
-    if (quantity.value === "") {
+    if (data.quantity == "") {
         flag = false;
         showError('errorQty', "* Số lượng không được để trống");
     }
-    if (description.value === "") {
-        flag = false;
-        showError('errorDesc', "* Mô tả không được để trống");
-    }
-    if (material.value === "") {
-        flag = false;
-        showError('errorMaterial', "* Chất liệu không được để trống");
-    }
-    if (manual.value === "") {
-        flag = false;
-        showError('errorManual', "* Hướng dẫn không được để trống");
-    }
-    // if (fileInput.src == "") {
-    //     flag = false;
-    //     showError('errorImage', "* Ảnh không được để trống");
-    // }
     return flag;
 }
 
@@ -398,3 +415,9 @@ function resetShowError() {
         resetError[i].innerText = '';
     }
 }
+
+function trimString(string, length) {
+    return string.length > length ? 
+           string.substring(0, length) + '...' :
+           string;
+};

@@ -29,7 +29,7 @@ btnCancel.addEventListener('click', () => {
     modal.classList.add('hidden');
     productListTitle.innerText = "Thêm loại sản phẩm";
     idUpdate = null;
-    btnSubmit.innerText = "Thêm loại";
+    btnSubmit.innerText = "Thêm loại sản phẩm";
 });
 
 
@@ -53,7 +53,12 @@ formModal.addEventListener('submit', (e) => {
 
     if (idUpdate) {
         const productLists = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LISTS));
-        const productListCheck = checkErrors();
+        const productType = {
+            name: productListName.value,
+            category: category.value,
+            status: true,
+        };
+        const productListCheck = checkErrors(productType);
         if (!productListCheck) {
             return;
         }
@@ -65,24 +70,29 @@ formModal.addEventListener('submit', (e) => {
                 showConfirmButton: false,
                 timer: 1500,
             })
+            const indexUpdate = productLists.findIndex(index => index.id === idUpdate);
+            productLists[indexUpdate].name = productListName.value;
+            productLists[indexUpdate].category = category.value;
+            localStorage.setItem(LOCAL_PRODUCT_LISTS, JSON.stringify(productLists));
+            btnCancel.click();
+            idUpdate = null;
         }
-        const indexUpdate = productLists.findIndex(index => index.id === idUpdate);
-        productLists[indexUpdate].name = productListName.value;
-        productLists[indexUpdate].category = category.value;
-        localStorage.setItem(LOCAL_PRODUCT_LISTS, JSON.stringify(productLists));
-        btnCancel.click();
-        idUpdate = null;
         render();
         return;
     }
-
+    //add
     let id = 1;
     const productLists = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LISTS)) || [];
     if (productLists.length > 0) {
         id = productLists[productLists.length - 1].id + 1;
     }
-
-    const productListCheck = checkErrors();
+    const productList = {
+        id,
+        name: productListName.value,
+        category: category.value,
+        status: true,
+    };
+    const productListCheck = checkErrors(productList);
     if (!productListCheck) {
         return;
     }
@@ -95,13 +105,6 @@ formModal.addEventListener('submit', (e) => {
             timer: 1500,
         })
     }
-
-    const productList = {
-        id,
-        name: productListName.value,
-        category: category.value,
-        status: true,
-    };
 
     productLists.push(productList);
     localStorage.setItem(LOCAL_PRODUCT_LISTS, JSON.stringify(productLists));
@@ -210,7 +213,7 @@ function updateProductList(id) {
     category.value = productLists[productListIndex].category;
     modal.classList.remove('hidden');
     productListTitle.innerText = "Sửa loại sản phẩm";
-    btnSubmit.innerText = "Sửa loại";
+    btnSubmit.innerText = "Sửa loại sản phẩm";
 }
 
 
@@ -235,24 +238,18 @@ function deleteProductList(id) {
     render();
 }
 
-function changeStatus(i) {
-    const productLists = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LISTS));
-    productLists[i].status = !productLists[i].status;
-    localStorage.setItem(LOCAL_PRODUCT_LISTS, JSON.stringify(productLists));
-    render();
-}
-
-function checkErrors() {
+function checkErrors(data) {
     resetShowError();
     const productLists = JSON.parse(localStorage.getItem(LOCAL_PRODUCT_LISTS)) || [];
     let flag = true;
-    let index = productLists.findIndex(item => item.name === productListName.value);
-
-    if (index !== -1 && category.value == productLists[index].category) {
-        flag = false;
-        showError('errorName', "Tên loại đã tồn tại");
+    for (let i in productLists) {
+        if (productLists[i].category == data.category && productLists[i].name == data.name) {
+            showError('errorName', "Tên loại đã tồn tại");
+            flag = false;
+            break;
+        }
     }
-    if (productListName.value === "") {
+    if (data.name == "") {
         flag = false;
         showError('errorName', "* Tên loại không được để trống");
     }
