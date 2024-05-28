@@ -5,10 +5,17 @@ function formatMoney(money) {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(money);
 }
 
-const collectionProduct = document.querySelector('#collectionProduct');
+function render() {
+    let renderProducts = JSON.parse(localStorage.getItem('Products')) || [];
+    renderCollectionPro(renderProducts);
+    renderSunProtectionShirt(renderProducts);
+    renderTShirtProducts(renderProducts);
+    renderClothesToWearAtHome(renderProducts);
+}
+render();
 
-function renderCollectionPro() {
-    let products = JSON.parse(localStorage.getItem('Products'));
+function renderCollectionPro(products) {
+    const collectionProduct = document.querySelector('#collectionProduct');
     products = products.filter(item => item.category == 1);
     let stringHTML = ``;
     for (let i in products) {
@@ -48,16 +55,11 @@ function renderCollectionPro() {
     collectionProduct.innerHTML = stringHTML;
 }
 
-renderCollectionPro();
-
 /*-------------------
     render sun Protection Shirt
 --------------------- */
-
-const sunProtectionShirt = document.querySelector('#sunProtectionShirt');
-
-function renderSunProtectionShirt() {
-    let products = JSON.parse(localStorage.getItem('Products'));
+function renderSunProtectionShirt(products) {
+    let sunProtectionShirt = document.querySelector('#sunProtectionShirt');
     products = products.filter(item => item.category == 2);
     let stringHTML = ``;
     for (let i = 0; i < products.length; i++) {
@@ -96,15 +98,12 @@ function renderSunProtectionShirt() {
     }
     sunProtectionShirt.innerHTML = stringHTML;
 }
-
-renderSunProtectionShirt();
 /*-------------------
     render sun Protection Shirt
 --------------------- */
-const tShirtProduct = document.querySelector('#tShirtProduct');
 
-function renderTShirtProducts() {
-    let products = JSON.parse(localStorage.getItem('Products'));
+function renderTShirtProducts(products) {
+    let tShirtProduct = document.querySelector('#tShirtProduct');
     products = products.filter(item => item.category == 3);
     let stringHTML = ``;
     for (let i = 0; i < products.length - 3; i++) {
@@ -116,10 +115,10 @@ function renderTShirtProducts() {
                 <img src="/public/imgs/sale/newproduct.webp" alt=""
                     class="product_free-img">
             </div>
-            <a productDetails(${products[i].id}) class="product_item-img"
+            <a onclick = "productDetails(${products[i].id})" class="product_item-img"
                 style="background-image: url(${products[i].image});"></a>
             <div class="product_item-tocart">
-                <button onclick ="addToCart(${i})">Thêm nhanh vào giỏ</button>
+                <button onclick ="addToCart(${products[i].id})">Thêm nhanh vào giỏ</button>
             </div>
             <div class="product_opsions">
                 <div class="product_select">
@@ -144,17 +143,13 @@ function renderTShirtProducts() {
     tShirtProduct.innerHTML = stringHTML;
 }
 
-renderTShirtProducts();
-
-
 /*-------------------
     render clothes To Wear At Home
 --------------------- */
 
-const clothesToWearAtHome = document.querySelector('#clothesToWearAtHome');
 
-function renderClothesToWearAtHome() {
-    let products = JSON.parse(localStorage.getItem('Products'));
+function renderClothesToWearAtHome(products) {
+    let clothesToWearAtHome = document.querySelector('#clothesToWearAtHome');
     products = products.filter(item => item.category == 4);
     let stringHTML = ``;
     for (let i = 0; i < products.length - 4; i++) {
@@ -193,8 +188,6 @@ function renderClothesToWearAtHome() {
     }
     clothesToWearAtHome.innerHTML = stringHTML;
 }
-
-renderClothesToWearAtHome();
 
 /*-------------------
     link products Details

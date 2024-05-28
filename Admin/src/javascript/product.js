@@ -265,7 +265,7 @@ function renderProducts(products) {
             `
             <tr>
                 <td class="table-td">${i + 1}</td>
-                <td class="table-td" >${trimString( products[i].name, 18)}</td>
+                <td class="table-td" >${trimString(products[i].name, 18)}</td>
                 <td class="table-td">${productList[indexProList].name}</td>
                 <td class="table-td">${categoryList[indexCategory].name}</td>
                 <td class="table-td">
@@ -379,7 +379,7 @@ function checkErrors(data) {
     const products = JSON.parse(localStorage.getItem(LOCAL_PRODUCT)) || [];
     let flag = true;
     for (let i in products) {
-        if(products[i].productList == data.productList && products[i].name == data.name) {
+        if (products[i].productList == data.productList && products[i].name == data.name) {
             showError('errorName', "Tên sản phẩm đã tồn tại");
             flag = false;
             break;
@@ -417,7 +417,7 @@ function resetShowError() {
 }
 
 function trimString(string, length) {
-    return string.length > length ? 
-           string.substring(0, length) + '...' :
-           string;
+    return string.length > length ?
+        string.substring(0, length) + '...' :
+        string;
 };

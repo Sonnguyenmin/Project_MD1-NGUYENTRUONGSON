@@ -177,21 +177,11 @@
                     <div class="h_search">
                         <input type="checkbox" hidden id="mobile-search-checkbox" class="h_search-checkbox">
                         <div class="h_search-wrapper">
-                            <button class="h_search-btn"></button>
-                            <input type="text" class="h_search-input" placeholder="Tìm kiếm">
+                            <button id="btnSearch" class="h_search-btn" onclick="render()"></button>
+                            <input type="text" id="textSearch" class="h_search-input" placeholder="Tìm kiếm"
+                                onchange="changeNameSearch(event)">
                             <div class="h_search-btn-icon">
                                 <ion-icon name="close-circle-outline"></ion-icon>
-                            </div>
-                            <div class="h_search-history">
-                                <h3 class="h_search-history-heading">Lịch sử tìm kiếm</h3>
-                                <ul class="h_search-history-list">
-                                    <li class="h_search-history-item">
-                                        <a href="" class="h_search-history-link">Áo khoác nam </a>
-                                    </li>
-                                    <li class="h_search-history-item">
-                                        <a href="" class="h_search-history-link">Áo khoác nữ</a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -205,13 +195,7 @@
                             <span>Cửa hàng</span>
                         </a>
                         <div id="js-account-users" class="h_account-icon">
-                            <div class="h_account-content">
-                                <ul class="h_account-list">
-                                    <li class="h_account-item">
-                                        <a href="" class="h_account-link"></a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="h_cart-icon ">
                             <label for="h_cart-check" class="h_cart-group">
@@ -239,6 +223,9 @@
                                         </ul>
                                     </div>
                                     <footer id="blockCartBottom" class="h_blockcart-bottom">
+                                        <div class="h_blockcart-close" onclick="deleteAllCart()">
+                                            <ion-icon name="trash-outline"></ion-icon> Xóa tất cả
+                                        </div>
                                         <div class="h_blockcart-bottom-total">
                                             <h4 class="h_blockcart-bottom-head">
                                                 Tạm tính

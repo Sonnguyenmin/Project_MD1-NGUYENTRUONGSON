@@ -101,7 +101,7 @@ function renderProductDetail() {
                     </div>
                 </div>
                 <div class="product-swatch-btn">
-                    <button class="product-swatch-bottom-check">
+                    <button onclick ="addToCart(${getProducts[ProductIndex].id})" class="product-swatch-bottom-check">
                         Thêm vào giỏ hàng
                     </button>
                 </div>
@@ -160,7 +160,7 @@ function renderRelatedProducts() {
                     <a onclick = "productDetails(${products[i].id})" class="product_item-img"
                         style="background-image: url(${products[i].image});"></a>
                     <div class="product_item-tocart">
-                        <button>Thêm nhanh vào giỏ</button>
+                        <button onclick ="addToCart(${products[i].id})">Thêm nhanh vào giỏ</button>
                     </div>
                     <div class="product_opsions">
                         <div class="product_select">

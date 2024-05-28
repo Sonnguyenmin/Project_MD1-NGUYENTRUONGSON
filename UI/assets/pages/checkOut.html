@@ -175,21 +175,10 @@
                     <div class="h_search">
                         <input type="checkbox" hidden id="mobile-search-checkbox" class="h_search-checkbox">
                         <div class="h_search-wrapper">
-                            <button class="h_search-btn"></button>
-                            <input type="text" class="h_search-input" placeholder="Tìm kiếm">
+                            <button id="btnSearch" class="h_search-btn"></button>
+                            <input type="text" id="textSearch" class="h_search-input" placeholder="Tìm kiếm">
                             <div class="h_search-btn-icon">
                                 <ion-icon name="close-circle-outline"></ion-icon>
-                            </div>
-                            <div class="h_search-history">
-                                <h3 class="h_search-history-heading">Lịch sử tìm kiếm</h3>
-                                <ul class="h_search-history-list">
-                                    <li class="h_search-history-item">
-                                        <a href="" class="h_search-history-link">Áo khoác nam </a>
-                                    </li>
-                                    <li class="h_search-history-item">
-                                        <a href="" class="h_search-history-link">Áo khoác nữ</a>
-                                    </li>
-                                </ul>
                             </div>
                         </div>
                     </div>
@@ -203,13 +192,7 @@
                             <span>Cửa hàng</span>
                         </a>
                         <div id="js-account-users" class="h_account-icon">
-                            <div class="h_account-content">
-                                <ul class="h_account-list">
-                                    <li class="h_account-item">
-                                        <a href="" class="h_account-link"></a>
-                                    </li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="h_cart-icon ">
                             <label for="h_cart-check" class="h_cart-group">
@@ -237,6 +220,9 @@
                                         </ul>
                                     </div>
                                     <footer id="blockCartBottom" class="h_blockcart-bottom">
+                                        <div class="h_blockcart-close" onclick="deleteAllCart()">
+                                            <ion-icon name="trash-outline"></ion-icon> Xóa tất cả
+                                        </div>
                                         <div class="h_blockcart-bottom-total">
                                             <h4 class="h_blockcart-bottom-head">
                                                 Tạm tính
@@ -303,7 +289,7 @@
                                             </a>
                                         </header>
                                         <div class="checkout-form-content">
-                                            <div class="checkout-form-fullname">
+                                            <div class="checkout-form-group">
                                                 <div class="checkout-form-name">
                                                     <label class="checkout-form-label" for="">Họ và tên</nav></label>
                                                     <input type="text" name="name" id="name" class="form-control">
@@ -349,7 +335,7 @@
                                     <div class="checkout-inner">
                                         <header class="checkout-product">
                                             <h2 class="checkout-product-title">
-                                                Sản phẩm <span class="check-product-count">(1)</span>
+                                                Sản phẩm <span id="totalCartProduct" class="check-product-count"></span>
                                             </h2>
                                         </header>
                                         <table class="checkout-table">
@@ -410,16 +396,14 @@
                                                 <div class="checkout-detail-list">
                                                     Giá trị đơn hàng
                                                 </div>
-                                                <div class="checkout-detail-price">
-                                                    1.297.000 ₫
+                                                <div class="checkout-detail-price " id="totalPrice">
                                                 </div>
                                             </div>
                                             <div class="checkout-detail-group">
                                                 <div class="grand-totals">
                                                     Tổng tiền thanh toán
                                                 </div>
-                                                <div class="total-amount">
-                                                    1.297.000 ₫
+                                                <div class="total-amount" id="billCart">
                                                 </div>
                                             </div>
                                             <div class="checkout-bottom-btn">
@@ -557,8 +541,8 @@
     </main>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    <script src="/UI/assets/javascript/home.js"></script>
     <script src="/UI/assets/javascript/checkOut.js"></script>
+    <script src="/UI/assets/javascript/home.js"></script>
 </body>
 
 </html>

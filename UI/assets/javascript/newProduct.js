@@ -10,6 +10,9 @@ let value = "";
 
 function render() {
     let realProducts = JSON.parse(localStorage.getItem(LOCAL_PRODUCT)) || [];
+
+    realProducts = realProducts.filter(product => product.name.toLowerCase().includes(textSearch));
+
     if (value == "min") {
         realProducts = realProducts.filter(item => item.price < 200000);
     } else if (value == "between") {
@@ -109,6 +112,11 @@ function changePageSize(e) {
     pageSize = e.target.value;
     currentPage = 1;
     render();
+}
+
+function changeNameSearch(e) {
+    textSearch = e.target.value.toLowerCase();
+    currentPage = 1;
 }
 
 function productDetails(id) {

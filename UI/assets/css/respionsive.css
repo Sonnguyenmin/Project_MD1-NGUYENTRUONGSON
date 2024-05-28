@@ -93,6 +93,19 @@
         font-size: 0.8rem;
         display: block;
     }
+
+    .h_account-content {
+        position: absolute;
+        top: calc(100% + 13px);
+        right: -10px;
+        width: 296px;
+        background-color: var(--white-color);
+        border-radius: 6px;
+        box-shadow: 0 1px 5px rgb(189, 189, 189);
+        display: none;
+        overflow: hidden;
+        z-index: 5;
+    }
     
     .h_search-icon:hover,
     .h_store-icon:hover,

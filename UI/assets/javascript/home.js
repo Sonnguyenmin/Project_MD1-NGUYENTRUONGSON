@@ -12,7 +12,8 @@ function login() {
 
 function logout() {
     localStorage.removeItem(USER_LOGIN);
-    render()
+    window.location.reload();
+    render();
 }
 
 function render() {
@@ -22,6 +23,16 @@ function render() {
             `
             <div class="span_account-icon" onclick="logout()">     
                 <span >Đăng xuất</span>
+                <div class="h_account-content">
+                    <ul class="h_account-list">
+                        <li class="h_account-item">
+                            <span></span>${userLogin.name}
+                        </li>
+                        <li class="h_account-item">
+                            ${userLogin.email}
+                        </li>
+                    </ul>
+                </div>
             </div>
         `
     } else {
@@ -115,14 +126,13 @@ function countCart() {
         countCart.innerHTML = count;
     }
 }
-
 countCart();
+
 
 function renderCart() {
     let noCart = document.querySelector('#noCart');
     let blockCart = document.querySelector('#blockCart');
     let totalCart = document.querySelector('#totalCart');
-    // let blockCartBottom = document.querySelector('#blockCartBottom');
     let blockCartList = document.querySelector('#blockCartList');
     let productCart = JSON.parse(localStorage.getItem('AddToCart')) || [];
     let stringHTML = ``;
@@ -135,7 +145,7 @@ function renderCart() {
                 `
                 <li class="h_blockcart-item">
                     <div class="h_blockcart-inner">
-                        <a href="" class="h_blockcart-inner--img">
+                        <a class="h_blockcart-inner--img">
                             <img src="${productCart[i].image}" alt="">
                         </a>
                         <div class="h_blockcart-inner--content">
@@ -199,6 +209,13 @@ function renderCart() {
     }
 }
 renderCart();
+
+function deleteAllCart() {
+    localStorage.removeItem('AddToCart');
+    renderCart();
+    window.location.reload();
+}
+
 function formatMoney(money) {
     return new Intl.NumberFormat('vi-VN', { style: 'currency', currency: 'VND' }).format(money);
 }
@@ -228,4 +245,13 @@ function changeCountMinus(id, qty) {
         localStorage.setItem('AddToCart', JSON.stringify(productCarts));
         renderCart();
     }
+}
+
+function productDetails(id) {
+    JSON.parse(localStorage.getItem('ProductDetails')) || {};
+    let values = {
+        productId: id,
+    };
+    localStorage.setItem('ProductDetails', JSON.stringify(values));
+    window.location.href = "/UI/assets/pages/productDetails.html";
 }

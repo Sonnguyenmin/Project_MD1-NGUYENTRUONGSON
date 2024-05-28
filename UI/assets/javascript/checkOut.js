@@ -95,10 +95,29 @@ function renderCity(data) {
     };
 }
 
+
+function totalCountCart() {
+    let total = 0;
+    let count = 0;
+    let totalPrice = document.querySelector('#totalPrice');
+    let billCart = document.querySelector('#billCart');
+    let totalCartProduct = document.querySelector('#totalCartProduct');
+    let productCart = JSON.parse(localStorage.getItem('AddToCart')) || [];
+    if (productCart.length > 0) {
+        for (let i in productCart) {
+            count++;
+            total += productCart[i].qty * productCart[i].price;
+        }
+        totalPrice.innerHTML = formatMoney(total);
+        billCart.innerHTML = formatMoney(total);
+        totalCartProduct.innerHTML = count;
+    }
+}
+totalCountCart();
+
 function order() {
     const userLogin = JSON.parse(localStorage.getItem("user-login")) || [];
     const orders = JSON.parse(localStorage.getItem("Orders")) || [];
-
     if (!userLogin.id) {
         Swal.fire({
             title: "Error!",
@@ -111,48 +130,75 @@ function order() {
     let cities = document.querySelector("#city");
     let districts = document.querySelector("#district");
     let wards = document.querySelector("#ward");
-    let nameUser = document.querySelector('#name');
-    let emailUser = document.querySelector('#email');
     let telephone = document.querySelector('#telephone');
     let address = document.querySelector('#address');
+    let nameUser = document.querySelector('#name');
+    let emailUser = document.querySelector('#email');
+
+    let indexCity = Array.from(cities.options).findIndex((e) => e.value === cities.value);
+    let indexDistrict = Array.from(districts.options).findIndex((e) => e.value === districts.value);
+    let indexWard = Array.from(wards.options).findIndex((e) => e.value === wards.value);
+
 
     nameUser.value = userLogin.name;
     emailUser.value = userLogin.email;
-    // B1: điền hết thông tin
+
     const userInfo = {
+        name: nameUser.value,
+        email: emailUser.value,
         telephone: telephone.value,
-        city: cities.value,
-        district: districts.value,
-        wards: wards.value,
+        city: cities.options[indexCity].innerHTML,
+        district: districts.options[indexDistrict].innerHTML,
+        wards: wards.options[indexWard].innerHTML,
         address: address.value,
     };
-    console.log(userInfo);
+    let isFormValid = true;
 
-    // B2: validation hết thông tin: cái nào thiếu thì báo thêm cho đủ hết
-    // if (!name ||!telephone ||!email ||!city ||!district ||!wrad ||!address) {
-    //     Swal.fire({
-    //         title: "Error!",
-    //         text: "Vui lòng điền đầy đủ thông tin",
-    //         icon: "error",
-    //         confirmButtonText: "Cancel",
-    //     });
-    //     return;
-    // }
-    // B3: sau khi mọi thứ đã có đủ
-    // const order = {
-    //     // ... toàn bộ thông tin người dùng nhập
-    //     ...user,
-    //     status: "Đang chờ",
-    //     total,
-    //     createdAt: "",
-    // }
-    // orders.push(order)
-    // localStorage.setItem("Orders", JSON.stringify(orders))
+    if (!userInfo.name || !userInfo.email || !userInfo.telephone || !userInfo.city || !userInfo.district || !userInfo.wards || !userInfo.address) {
+        isFormValid = false;
+        Swal.fire({
+            title: "Error!",
+            text: "Vui lòng điền hết thông tin cá nhân",
+            icon: "error",
+            confirmButtonText: "Cancel",
+        });
+    }
 
-    // alert("thanh toan thanh cong")
+    if (isFormValid) {
+        let productCart = JSON.parse(localStorage.getItem('AddToCart'));
+        const order = {
+            ...userInfo,
+            status: "Đang chờ Xác nhận",
+            createdAt: orderDate(),
+            products: productCart,
+            total: totalCountCart(),
+            userId: userLogin.id,
+            id: orders.length + 1
+        }
+        orders.push(order)
+        localStorage.setItem("Orders", JSON.stringify(orders));
 
-    // xóa hết các object có userId == userLogin.id trong local Addtocart
-
+        Swal.fire({
+            position: "center",
+            icon: "success",
+            title: "Bạn đã mua hàng thành công",
+            showConfirmButton: false,
+            timer: 1500,
+        }).then(() => (window.location.href = "/UI/assets/pages/FinishCart.html"));
+        localStorage.removeItem('AddToCart');
+    }
 }
 
-order();
+
+function orderDate() {
+    const today = new Date();
+    const yyyy = today.getFullYear();
+    let mm = today.getMonth() + 1;
+    let dd = today.getDate();
+
+    if (dd < 10) dd = '0' + dd;
+    if (mm < 10) mm = '0' + mm;
+
+    const formattedTime = dd + '/' + mm + '/' + yyyy;
+    return formattedTime;
+}

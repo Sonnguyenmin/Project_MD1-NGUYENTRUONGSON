@@ -5,15 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
-    <title>山 CANIFA</title>
+    <title>山 CANIFA / Checkout</title>
     <!-- =========Link favicon========-->
-    <!-- <link rel="icon" type="image/x-icon" href="/public/imgs/favicon-16x16.ico" /> -->
+    <!-- <link rel="icon" type="image/x-icon" href="/public/imgs/imgs/favicon-16x16.ico" /> -->
     <!--=========== Link css ================ -->
-    <link rel="stylesheet" href="./../css/productDetails.css">
-    <link rel="stylesheet" href="./../css/base.css">
-    <link rel="stylesheet" href="./../css/grid.css">
-    <link rel="stylesheet" href="./../css/main.css">
-    <link rel="stylesheet" href="./../css/respionsive.css">
+    <link rel="stylesheet" href="/UI/assets/css/cart.css">
+    <link rel="stylesheet" href="/UI/assets/css/base.css">
+    <link rel="stylesheet" href="/UI/assets/css/grid.css">
+    <link rel="stylesheet" href="/UI/assets/css/main.css">
+    <link rel="stylesheet" href="/UI/assets/css/respionsive.css">
     <!-------------------------------------------------- -->
     <!-- ============link fonts================= -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -28,8 +28,6 @@
     <!-- -------------------------------------------------- -->
 
     <!-- ===Link thư viện owl carousel=== -->
-    <link rel="stylesheet" href="/public/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.carousel.min.css">
-    <link rel="stylesheet" href="/public/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/assets/owl.theme.default.min.css">
     <!-- ============================= -->
 </head>
 
@@ -177,10 +175,21 @@
                     <div class="h_search">
                         <input type="checkbox" hidden id="mobile-search-checkbox" class="h_search-checkbox">
                         <div class="h_search-wrapper">
-                            <button id="btnSearch" class="h_search-btn"></button>
-                            <input type="text" id="textSearch" class="h_search-input" placeholder="Tìm kiếm">
+                            <button class="h_search-btn"></button>
+                            <input type="text" class="h_search-input" placeholder="Tìm kiếm">
                             <div class="h_search-btn-icon">
                                 <ion-icon name="close-circle-outline"></ion-icon>
+                            </div>
+                            <div class="h_search-history">
+                                <h3 class="h_search-history-heading">Lịch sử tìm kiếm</h3>
+                                <ul class="h_search-history-list">
+                                    <li class="h_search-history-item">
+                                        <a href="" class="h_search-history-link">Áo khoác nam </a>
+                                    </li>
+                                    <li class="h_search-history-item">
+                                        <a href="" class="h_search-history-link">Áo khoác nữ</a>
+                                    </li>
+                                </ul>
                             </div>
                         </div>
                     </div>
@@ -194,7 +203,7 @@
                             <span>Cửa hàng</span>
                         </a>
                         <div id="js-account-users" class="h_account-icon">
-
+                            
                         </div>
                         <div class="h_cart-icon ">
                             <label for="h_cart-check" class="h_cart-group">
@@ -222,9 +231,6 @@
                                         </ul>
                                     </div>
                                     <footer id="blockCartBottom" class="h_blockcart-bottom">
-                                        <div class="h_blockcart-close" onclick="deleteAllCart()">
-                                            <ion-icon name="trash-outline"></ion-icon> Xóa tất cả
-                                        </div>
                                         <div class="h_blockcart-bottom-total">
                                             <h4 class="h_blockcart-bottom-head">
                                                 Tạm tính
@@ -234,7 +240,7 @@
                                             </div>
                                         </div>
                                         <div class="h_blockcart-bottom-btn">
-                                            <a href="/UI/assets/pages/checkOut.html" class="h_blockcart-bottom-check">
+                                            <a  href="/UI/assets/pages/checkOut.html" class="h_blockcart-bottom-check">
                                                 Thanh toán
                                             </a>
                                         </div>
@@ -250,89 +256,11 @@
         <!-- The end -->
         <main class="apps_container">
             <div class="grid wide">
-                <div class="breadcrumb apps_content">
-                    <ul class="breadcrumb_list">
-                        <li class="breadcrumb_item">
-                            <ion-icon name="home-outline"></ion-icon>
-                            <a href="/UI/home.html" class="breadcrumb_link">Trang chủ</a>
-                        </li>
-                        <li class="breadcrumb_item">
-                            <a href="" class="breadcrumb_link">Nữ</a>
-                        </li>
-                        <li class="breadcrumb_item">
-                            <a href="" class="breadcrumb_link">Chống nắng</a>
-                        </li>
-                        <li class="breadcrumb_item">
-                            <strong>Áo khoác chống nắng</strong>
-                        </li>
-                    </ul>
+                <div class="cart_head apps_content">
+                    <h3>Bạn đã đặt hàng thành công</h3>
                 </div>
-                <div class="product-details apps_content">
-                    <div class="row sm-gutter" id="productDetailsList">
-                    </div>
-                </div>
-                <!-- payment  -->
-                <section class="payment-pages apps_content">
-                    <div class="grid wide ">
-                        <div class="payment_wrapper ">
-                            <div class="payment_inner">
-                                <div class="payment_img img_delivery">
-
-                                </div>
-                                <div class="payment_item">
-                                    <h3 class="payment_head">
-                                        Thanh toán khi nhận hàng (COD)
-                                    </h3>
-                                    <span class="payment_desc">
-                                        Giao hàng toàn quốc
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="payment_inner">
-                                <div class="payment_img img_free">
-
-                                </div>
-                                <div class="payment_item">
-                                    <h3 class="payment_head">
-                                        Miễn phí giao hàng
-                                    </h3>
-                                    <span class="payment_desc">
-                                        Với đơn hàng trên 599.000đ
-                                    </span>
-                                </div>
-                            </div>
-                            <div class="payment_inner">
-                                <div class="payment_img img_change">
-
-                                </div>
-                                <div class="payment_item">
-                                    <h3 class="payment_head">
-                                        Đơn hàng miễn phí
-                                    </h3>
-                                    <span class="payment_desc">
-                                        Trong 30 ngày kể từ ngày mua.
-                                    </span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-                <!-- end payment -->
-                <!-- sunscreen -->
-                <section class="related_products apps_content">
-                    <div class="related_products_wrapper">
-                        <h2 class="related_products_head">
-                            Sản phẩm liên quan
-                        </h2>
-                    </div>
-                    <div class="colection_product">
-                        <div id="relatedProducts" class="colection_product-slider owl-carousel owl-theme">
-                        </div>
-                    </div>
-                </section>
-                <!-- end sunscreen -->
             </div>
-            </div>
+
         </main>
         <footer class="footer">
             <div class="grid wide">
@@ -447,53 +375,15 @@
                         &copy; 2023 CANIFA.
                     </p>
                     <div class="footer_bottom-img">
-
                     </div>
                 </div>
             </div>
         </footer>
     </main>
-
-    <script src="/UI/assets/javascript/jquery-3.7.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script src="/UI/assets/javascript/home.js"></script>
-    <script src="/UI/assets/javascript/productDetail.js"></script>
-    <!-- owl carousel js -->
-    <script src="/public/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.js"></script>
-    <script src="/public/OwlCarousel2-2.3.4/OwlCarousel2-2.3.4/dist/owl.carousel.min.js"></script>
-    <!-- end owl carousel -->
-
-    <script>
-        $('.colection_product-slider').owlCarousel({
-            loop: true,
-            nav: true,
-            autoplay: true,
-            autoplayTimeout: 6000,
-            autoplayHoverPause: true,
-            navText: [
-                '<img class="img-pro-icon" src="/public/fonts/arrow-back-outline.svg" alt="prev">',
-                '<img class="img-pro-icon" src="/public/fonts/arrow-forward-outline.svg" alt="next">'
-            ],
-            responsive: {
-                0: {
-                    margin: 10,
-                    items: 2
-                },
-                600: {
-                    margin: 10,
-                    items: 2
-
-                },
-                1000: {
-                    margin: 10,
-                    items: 4
-                },
-                1200: {
-                    margin: 20,
-                    items: 4
-                }
-            }
-        });
-    </script>
+    <script src="/UI/assets/javascript/checkOut.js"></script>
 </body>
 
 </html>

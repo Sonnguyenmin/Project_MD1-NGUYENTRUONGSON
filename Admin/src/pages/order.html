@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang quản lý Order</title>
+    <!-- =========Link favicon========-->
+    <link rel="icon" type="image/x-icon" href="/public/imgs/favicon-16x16.ico" />
+    <!--=========== Link css ================ -->
+    <link rel="stylesheet" href="/admin/src/css/adminMain.css">
+    <link rel="stylesheet" href="/admin/src/css/adminBase.css">
+    <link rel="stylesheet" href="/admin/src/css/category.css">
+    <link rel="stylesheet" href="/UI/assets/css/grid.css">
+    <!-- ================================================= -->
+
+    <!-- ============link fonts================= -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Kodchasan:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,200;1,300;1,400;1,500;1,600;1,700&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+        rel="stylesheet" />
+    <!-- --------------------------------------------------- -->
+    <!-- ==== link icon font ====-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <!-- -------------------------------------------------- -->
+
+</head>
+
+<body>
+    <main class="appAdmin">
+        <div class="grid">
+            <div class="row sm-gutter">
+                <nav class="sidebar close ">
+                    <header class="sidebar_h">
+                        <div class="sidebar_img">
+                            <a href="/admin/Admin.html" class="sidebar_link">
+                                <img src="/public/imgs/logo.svg" alt="">
+                                <span class="sidebar_title">
+                                    CANIFA admin
+                                </span>
+                            </a>
+                        </div>
+                    </header>
+                    <section class="menu_sidebar">
+                        <div class="menu_content">
+                            <ul class="menu_content-list">
+                                <li class="menu_content-item">
+                                    <a href="/admin/Admin.html" class="menu_content-link">
+                                        <ion-icon name="storefront-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Trang chủ
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/admin/src/pages/Category.html" class="menu_content-link">
+                                        <ion-icon name="save-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Danh mục sản phẩm
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/admin/src/pages/productType.html" class="menu_content-link">
+                                        <ion-icon name="copy-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Loại sản phẩm
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/admin/src/pages/Product.html" class="menu_content-link">
+                                        <ion-icon name="file-tray-stacked-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Sản phẩm
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/Admin/src/pages/order.html" class="menu_content-link">
+                                        <ion-icon name="bag-handle-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Quản lý Order
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/Admin/src/pages/Comment.html" class="menu_content-link">
+                                        <ion-icon name="chatbox-ellipses-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Quản lý Bình Luận
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/Admin/src/pages/User.html" class="menu_content-link">
+                                        <ion-icon name="people-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Quản lý khách hàng
+                                        </span>
+                                    </a>
+                                </li>
+                                <li class="menu_content-item">
+                                    <a href="/UI/home.html" class="menu_content-link">
+                                        <ion-icon name="log-out-outline"></ion-icon>
+                                        <span class="menu_content-text">
+                                            Đăng xuất
+                                        </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="menu-content-bottom">
+                            <li class="menu_content-mode menu_content-select">
+                                <div class="menu_content-moon-sun">
+                                    <ion-icon name="sunny-outline" class="moon-sun-icon sunny"></ion-icon>
+                                    <ion-icon name="moon-outline" class="moon-sun-icon moon"></ion-icon>
+                                </div>
+                                <span class="menu_content-span">
+                                    chế độ sáng
+                                </span>
+                                <div class="menu_content-switch">
+                                    <span class="switch"></span>
+                                </div>
+                            </li>
+                        </div>
+                    </section>
+                </nav>
+                <div class="app_contents">
+                    <header class="content_wrapper">
+                        <nav class="content_inner-nav">
+                            <ul class="content_nav-list">
+                                <li class="content_nav-item">
+                                    <ion-icon name="menu-outline" class="menu-icon"></ion-icon>
+                                </li>
+                            </ul>
+                            <ul class="content_nav-list">
+                                <li class="content_nav-item">
+                                    <ion-icon class="content_nav-icon" name="grid-outline"></ion-icon>
+                                </li>
+                                <li class="content_nav-item">
+                                    <img src="/public/imgs/img-admin/vietnam.png" class="content_nav-img" alt="">
+                                </li>
+                                <li class="content_nav-item">
+                                    <ion-icon class="content_nav-icon" name="scan-outline"></ion-icon>
+                                </li>
+                                <li class="content_nav-item">
+                                    <ion-icon class="content_nav-icon noti-icon"
+                                        name="notifications-outline"></ion-icon>
+                                    <span class="noti-count">3</span>
+                                </li>
+                                <li class="content_nav-item">
+                                    <ion-icon class="content_nav-icon seting-icon" name="settings-outline"></ion-icon>
+                                </li>
+                                <li class="content_nav-item">
+                                    <div class="profile-item">
+                                        <img src="/public/imgs/img-admin/profile.png" alt="" class="profile-img">
+                                        <div class="profile-name">
+                                            <span>Admin</span>
+                                            <p class="profile-user">
+                                                Admin
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </nav>
+                    </header>
+                    <div class="content_table">
+                        <div class="content_table-group">
+                            <h3 class="content_table-head">Liệt kê danh mục sản phẩm</h3>
+                        </div>
+                        <section class="table-content">
+                            <div id="action" class="table-action">
+                                <header class="table-header">
+                                    <div class="table-add">
+                                    </div>
+                                    <div class="table-search">
+                                        <input id="textSearch" type="text" class="table-search-input" onchange="changeNameSearch(event)">
+                                        <button class="btn-search" id="btnSearch" onclick="render()">
+                                            <ion-icon name="search-outline"></ion-icon>
+                                        </button>
+                                    </div>
+                                </header>
+                            </div>
+                            <div id="table" class="table-body">
+                                <table class="table-inner">
+                                    <thead class="table-thead">
+                                        <tr class="table-tr">
+                                            <th class="table-th" width="6%">STT</th>
+                                            <th class="table-th">Tên KH</th>
+                                            <th class="table-th">SDT</th>
+                                            <th class="table-th">Email</th>
+                                            <th class="table-th">Địa chỉ</th>
+                                            <th class="table-th">Tỉnh/thành phố</th>
+                                            <th class="table-th">Quận/Huyện</th>
+                                            <th class="table-th">Phường/Xã</th>
+                                            <th class="table-th">Thời gian</th>
+                                            <th class="table-th">Trạng thái</th>
+                                            <th class="table-th">Hành động</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="orderBody">
+                                    </tbody>
+                                </table>
+                            </div>
+                            <div id="pagination" class="table-pagination">
+                                <div class="pagination-content">
+                                    <span class="pagination-show">Hiển thị</span>
+                                    <div class="pagination-label">
+                                        <select class="pagination-select" onchange="changePageSize(event)">
+                                            <option value="5">5</option>
+                                            <option value="10">10</option>
+                                            <option value="15">15</option>
+                                        </select>
+                                    </div>
+                                    <span class="pagination-entries">Mục</span>
+                                </div>
+                                <ul class="pagination-list">
+                                    <li class="pagination-item">
+                                        <button class="pagination-btn" onclick="changePage(-1)">
+                                            <i class="fa-solid fa-caret-left"></i>
+                                        </button>
+                                    </li>
+                                    <li class="pagination-item">
+                                        <p id="page-list"></p>
+                                    </li>
+                                    <li class="pagination-item">
+                                        <button class="pagination-btn" onclick="changePage(1)">
+                                            <i class="fa-solid fa-caret-right"></i>
+                                        </button>
+                                    </li>
+                                </ul>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="/admin/src/javascript/adminStyle.js"></script>
+<script src="/admin/src/javascript/order.js"></script>
+
+</html>
